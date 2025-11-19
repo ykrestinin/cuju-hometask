@@ -1,0 +1,25 @@
+{
+  "name": "cuju-hometask",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test --project=chromium ; npx playwright show-report",
+    "test:api": "npx playwright test --project=chromium --grep @Api ; npx playwright show-report",
+    "api": "npx playwright test --project=chromium --grep @Api"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^24.10.1"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "pino": "^10.1.0",
+    "pino-pretty": "^13.1.2",
+    "uuid": "^13.0.0",
+    "zod": "^4.1.12"
+  }
+}
