@@ -1,0 +1,52 @@
+# Part 2
+ Negative & Edge Case Scenarios
+
+Even with Zod schema validation on the client side, the API may still return unexpected behavior. These scenarios ensure backend stability, proper validation, and correct error handling.
+
+## 1. Invalid Identifiers
+- Non-existent `userId`
+- Non-existent `exerciseId`
+- Invalid `exerciseEventId` during polling/deletion
+**Goal:** verify correct backend error codes (404 / 400), not schema validation.
+
+## 2. Invalid File Upload
+- Uploading a wrong file type
+- Using an incorrect `Content-Type`
+- Uploading an empty file
+**Goal:** ensure S3/presigned URL validation reacts properly.
+
+## 3. Polling Edge Cases
+- Status never becomes `scored`
+- API returns unexpected intermediate statuses
+- API temporarily returns 500/503
+**Goal:** check retry robustness and correct failure reporting.
+
+## 4. Create Event Validation
+- File size below minimum / above maximum
+- Missing file size
+**Goal:** confirm backend constraints (Zod validation happens before request on the client).
+
+## 5. Unauthorized / Forbidden Requests - even there is no specification for it right now, this area schould be always covered
+- Missing auth headers
+- Using expired tokens
+**Goal:** ensure correct security enforcement (401/403).
+
+## 6. Deletion Errors
+- Deleting an event twice
+- Deleting an event that belongs to another user
+**Goal:** backend should reject invalid delete operations.
+
+# Handling Long-Running Event-Driven Workflows
+
+## 1. If real processing must be tested ("Full e2e") - just theoretical thoughts :)
+ - Increase polling interval and max retries for the env. where these type of tests are running
+ - Add more timeouts and clear failure messages
+ - Test the long-running scoring worker in isolation on integration level e.g., not through the API or e2e
+ - Run these tests in separated CI pipeline
+
+## 2. If real processing could be avoided 
+ - Mock the scoring/processing service in the way that API immediately returns a final status.
+ - Use test-mode for Backend - untroduce kind of backend feature flag which forces the workflow to complete immediately or skip heavy processing
+
+# Framework principles and thoughts.
+Basic principles of automation framework organisation are defined in ISTQB standart:

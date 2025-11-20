@@ -16,11 +16,11 @@ Install zod for schema validation
 ```sh
 npm install zod
 ```
-Install uuid 
+Install uuid for uniq ids generation
 ```sh
 npm install uuid
 ```
-install pino
+install pino for logging
 ```sh
 bun add pino pino-pretty
 ```
