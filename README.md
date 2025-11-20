@@ -29,7 +29,7 @@ bun add pino pino-pretty
 ```sh
 npm run test
 ```
-run only tests tagged with @Api and show report.
+run only tests tagged with @api and show report.
 ```sh
 npm run test:api 
 ```
@@ -39,7 +39,9 @@ npm run api
 ```
 
 ## Environment Variables
-By default, the environment is set to dev. To select another environment (e.g., production):
+By default, the environment is set to dev.(API_BASE_URL=http://localhost:3000) 
+**For sure, all informaition related to .env should be added to .gitignore,** I left it just to make it more convinient
+To select another environment (e.g., production):
 ```sh
 export ENVIRONMENT=prod
 ```
@@ -58,13 +60,10 @@ export ENVIRONMENT=prod
 
 ## Example
 ```sh
-npm run api 
+npm run test:api 
 ```
 This will:
 	1.	Execute the API tests tagged with @Api.
 	2.	Show logs in the console via Pino.
 	3.	Clean up test data automatically (delete created Exercise Events).
-	4.	The test report can be viewed with:
-```sh
-npx playwright show-report
-```
+	4.	Open test-report

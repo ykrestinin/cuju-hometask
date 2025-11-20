@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test --project=chromium ; npx playwright show-report",
-    "test:api": "npx playwright test --project=chromium --grep @Api ; npx playwright show-report",
+    "test:api": "npx playwright test --project=chromium --grep @api ; npx playwright show-report",
     "api": "npx playwright test --project=chromium --grep @Api"
   },
   "keywords": [],

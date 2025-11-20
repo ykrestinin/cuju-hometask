@@ -12,7 +12,7 @@ import fs from "fs";
 test.describe("Happy Path: Create, Upload, Poll Exercise Event", () => {
   test(
     "Verify Create, Upload, Poll Exercise Event",
-    { tag: "@Api" },
+    { tag: "@api" },
     async ({ request, testData }) => {
       const { userId, exerciseId, filePath } = testData;
 
