@@ -60,20 +60,20 @@ Basic principles of automation framework organization are defined in ISTQB stand
 In practice, this means:
 
 - Structuring tests for maintainability and scalability:
-**use patterns** like PageObject/Factory, singleton, data-diven etc.
-**reuse code**, use functions/methods to avoid duplication
-**keep сlear and readable tests**, the name and description reflects purpose of the test
-**keep еest isolation**, avoid dependencies between test
-**keep modularity**, tests and helper functions are separated logically
-**keep the layer of abstraction**, so that test are not using specific ui or implementation details - changes are handled without test changes
+-- **use patterns** like PageObject/Factory, singleton, data-diven etc.
+-- **reuse code**, use functions/methods to avoid duplication
+-- **keep сlear and readable tests**, the name and description reflects purpose of the test
+-- **keep еest isolation**, avoid dependencies between test
+-- **keep modularity**, tests and helper functions are separated logically
+-- **keep the layer of abstraction**, so that test are not using specific ui or implementation details - changes are handled without test changes
 
 - Clear separation of test data, fixtures
-**keep data separated**, should be separated from logic
-**use fixtures/hooks**, allows to set the needed "state" before/after test 
+-- **keep data separated**, should be separated from logic
+-- **use fixtures/hooks**, allows to set the needed "state" before/after test 
 
 - Proper handling of configuration and environments
-**no hardcode**, run your test on any env by switching configs
-**separated from logic**,
+-- **no hardcode**, run your test on any env by switching configs
+-- **separated from logic**,
 
 - Support for parallel test execution without conflicts
 
