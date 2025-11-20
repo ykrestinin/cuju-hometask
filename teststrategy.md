@@ -68,12 +68,12 @@ In practice, this means:
   - **keep the layer of abstraction**, so that test are not using specific ui or implementation details - changes are handled without test changes
 
 - Clear separation of test data, fixtures
- - **keep data separated**, should be separated from logic
- - **use fixtures/hooks**, allows to set the needed "state" before/after test 
+  - **keep data separated**, should be separated from logic
+  - **use fixtures/hooks**, allows to set the needed "state" before/after test 
 
 - Proper handling of configuration and environments
- - **no hardcode**, run your test on any env by switching configs
- - **separated from logic**,
+  - **no hardcode**, run your test on any env by switching configs
+  - **separated from logic**,
 
 - Support for parallel test execution without conflicts
 
