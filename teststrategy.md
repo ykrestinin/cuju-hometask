@@ -8,15 +8,11 @@ Even with Zod schema validation on the client side, the API may still return une
 - Non-existent `exerciseId`
 - Invalid `exerciseEventId` during polling/deletion
 
-**Goal:** verify correct backend error codes (404 / 400), not schema validation.
-
 ## 2. Invalid File Upload
 
 - Uploading a wrong file type
 - Using an incorrect `Content-Type`
 - Uploading an empty file
-
-**Goal:** ensure S3/presigned URL validation reacts properly.
 
 ## 3. Polling Edge Cases
 
@@ -24,14 +20,11 @@ Even with Zod schema validation on the client side, the API may still return une
 - API returns unexpected intermediate statuses
 - API temporarily returns 500/503
 
-**Goal:** check retry robustness and correct failure reporting.
 
 ## 4. Create Event Validation
 
 - File size below minimum / above maximum
 - Missing file size
-
-**Goal:** confirm backend constraints (Zod validation happens before request on the client).
 
 ## 5. Unauthorized / Forbidden Requests
 
@@ -40,14 +33,11 @@ Even if there is no specification for it right now, this area should always be c
 - Missing auth headers
 - Using expired tokens
 
-**Goal:** ensure correct security enforcement (401/403).
-
 ## 6. Deletion Errors
 
 - Deleting an event twice
 - Deleting an event that belongs to another user
 
-**Goal:** backend should reject invalid delete operations.
 
 # Handling Long-Running Event-Driven Workflows
 
